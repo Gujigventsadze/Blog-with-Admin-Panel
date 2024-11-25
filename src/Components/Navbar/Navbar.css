@@ -1,0 +1,166 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 1.5rem 3rem;
+    font-family: "Montserrat";
+    align-items: center;
+}
+.navbar-logo,
+.navbar-links,
+.navbar-login {
+    flex: 1;
+}
+.navbar-logo {
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.navbar-links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3rem;
+}
+.navbar-links a {
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+.navbar-links a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: black;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+.navbar-links a:hover::before {
+    width: 100%;
+}
+.navbar-links a:hover {
+    font-weight: 500;
+}
+.navbar-login {
+    display: flex;
+    justify-content: flex-end;
+}
+.btn {
+    font-size: 1.3rem;
+    border: none;
+    box-sizing: border-box;
+    padding: 0.7rem 2.1rem;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 3rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    background-color: transparent;
+    color: black;
+    background-color: rgb(235, 234, 234);
+}
+
+.btn span {
+    position: relative;
+    z-index: 2; 
+    transition: color 0.3s ease;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    transition: width 0.3s ease;
+    z-index: 1; 
+}
+
+.btn:hover::before {
+    width: 100%; 
+}
+
+.btn:hover span {
+    color: white;
+}
+
+.btn:active {
+    opacity: 0.7;
+}
+.menu-links {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .line1,
+    .line2,
+    .line3 {
+        width: 50px;
+        height: 2px;
+        background-color: black;
+        transition: 0.4s;
+    }
+    .navbar-links {
+        display: none;
+    }
+    .navbar-login {
+        display: none;
+    }
+    .navbar {
+        padding: 1rem 1rem;
+    }
+    .line1-active {
+        transform: translate(0px, 13px) rotate(-45deg);
+        transition: 0.4s;
+        width: 50px;
+        height: 2px;
+        background-color: black;
+    }
+    .line2-active {
+        opacity: 0;
+        transition: 0.4s;
+    }
+    .line3-active {
+        transform: translate(0px, 0px) rotate(45deg);
+        transition: 0.4s;
+        width: 50px;
+        height: 2px;
+        background-color: black;
+    }
+    .menu-links {
+        position: absolute;
+        right: 0;
+        top: 71.2px;
+        display: flex;
+        flex-direction: column;
+        height: 0rem;
+        justify-content: space-around;
+        box-sizing: border-box;
+        padding: 0rem;
+        opacity: 0;
+        z-index: -1000;
+        width: 100%;
+        align-items: center;
+        font-size: 1.3rem;
+        background-color: white;
+        box-shadow: 0 0 3px gray;
+        font-weight: 500;
+        transition: 0.2s;
+    }
+    .menu-links.active {
+        height: 20rem;
+        opacity: 1;
+        padding: 2rem;
+        transition: 0.4s;
+    }
+}
